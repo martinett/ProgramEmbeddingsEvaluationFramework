@@ -2,9 +2,15 @@
 A framework to evaluate and compare program embedding spaces. This framework is presented in [martinet et al. 2024](https://ebooks.iospress.nl/doi/10.3233/FAIA240733).
 
 ### Requirements
-Our implementation is based on a modified version of the gensim library. To use our code, one needs to compile our gensim version first, by running the build_gensim (.sh on ubuntu and .bat on windows). If you want to use our code in another directory, you'll need either to include this project folder in your python path or to move the modified_gensim folder to you python bin folder.  
+Our implementation is based on a modified version of the gensim library. To use our code, one needs to compile our gensim version first, by running the build_gensim (.sh on ubuntu and .bat on windows). If you want to use our code in another directory, you'll need either to include this project folder in your python path or to move the modified_gensim folder to you python bin folder.
 
 Our implementation also needs the [tree_sitter library](https://tree-sitter.github.io/tree-sitter) (0.21.0 version).
+
+### Datasets
+If you want to reproduce our results, you'll need to download the datasets:
+- [NC5690 (Cleuziou et Flouvat - 2022)](https://github.com/GCleuziou/code2aes2vec/tree/master/Datasets#datasets-presentation)
+- [AD2022 (Petersen-Frey et al. - 2022)](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/ad-lrec)
+- [ProgPedia (Paiva et al. - 2023)](https://zenodo.org/records/7449056)
 
 ### Example
 Load the model and data modules
