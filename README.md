@@ -15,6 +15,11 @@ If you want to reproduce our results, you'll need to download the datasets:
 There is already a python module (get_data.py) to load them.
 
 ### Example
+Build the tree_sitter language grammar (if using java). You have to do that only once after the installation
+```python
+from tree_sitter import Language
+Language.build_library("build/my-languages.so", ["parsers/tree-sitter-java"])
+```
 Load the model and data modules
 ```python
 from Sec2vec import Sec2vec
