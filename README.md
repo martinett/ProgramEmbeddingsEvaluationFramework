@@ -34,7 +34,7 @@ exercises = [ind["exercise_name"] for ind in data]
 ```
 Instantiate the model and learn the embeddings
 ```python
-model = Sec2vec(element="token", progrepr="src")
+model = Sec2vec(element="token", progrepr="source")
 model.train(programs)
 embeddings = model.demb.vectors
 ```
