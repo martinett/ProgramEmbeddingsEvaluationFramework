@@ -254,7 +254,7 @@ class CorpusBuilder:
         insts_tks = []
         if self.progrepr in ("source", "ast"):
             insts_tks = extract_tokens(ast)
-        elif self.sequence == "trace":
+        elif self.progrepr == "trace":
             insts_tks = self.get_trace(ast)
 
         sequence = []
