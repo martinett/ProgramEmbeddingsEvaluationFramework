@@ -12,18 +12,20 @@ If you want to reproduce our results, you'll need to download the datasets:
 - [AD2022 (Petersen-Frey et al. - 2022)](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/ad-lrec)
 - [ProgPedia (Paiva et al. - 2023)](https://zenodo.org/records/7449056)
 
+There is already a python module (get_data.py) to load them.
+
 ### Example
 Load the model and data modules
 ```python
 from Sec2vec import Sec2vec
-from get_data import get_toy_dataset
+from get_data import NC1014
 ```
 Construct the program list
 ```python
 import numpy as np
+data = NC1014()
 programs = [ind["upload"] for ind in data]
 exercises = [ind["exercise_name"] for ind in data]
-labels = np.unique(exercises, return_inverse=True)[1]
 ```
 Instantiate the model and learn the embeddings
 ```python
@@ -34,6 +36,7 @@ embeddings = model.demb.vectors
 Visualize the embeddings
 ```python
 from sklearn.manifold import TSNE
+labels = np.unique(exercises, return_inverse=True)[1]
 reductor = TSNE()
 emb2d = reductor.fit_transform(embeddings)
 plt.scatter(emb2d[:,0], emb2d[:,1], c=labels)
