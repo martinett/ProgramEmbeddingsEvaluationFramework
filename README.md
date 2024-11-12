@@ -4,7 +4,13 @@ A framework to evaluate and compare program embedding spaces. This framework is 
 ### Requirements
 Our implementation is based on a modified version of the gensim library. To use our code, one needs to compile our gensim version first, by running the build_gensim (.sh on ubuntu and .bat on windows). If you want to use our code in another directory, you'll need either to include this project folder in your python path or to move the modified_gensim folder to you python bin folder.
 
-Our implementation also needs the [tree_sitter library](https://tree-sitter.github.io/tree-sitter) (0.21.0 version).
+Our implementation also needs the [tree-sitter library](https://tree-sitter.github.io/tree-sitter) (0.21.0 version).
+
+If you want to use java programs, you'll have to build the tree-sitter language grammar (only once after the installation of tree-sitter).
+```python
+from tree_sitter import Language
+Language.build_library("build/my-languages.so", ["parsers/tree-sitter-java"])
+```
 
 ### Datasets
 If you want to reproduce our results, you'll need to download the datasets:
@@ -15,11 +21,6 @@ If you want to reproduce our results, you'll need to download the datasets:
 There is already a python module (get_data.py) to load them.
 
 ### Example
-Build the tree_sitter language grammar (if using java). You have to do that only once after the installation
-```python
-from tree_sitter import Language
-Language.build_library("build/my-languages.so", ["parsers/tree-sitter-java"])
-```
 Load the model and data modules
 ```python
 from Sec2vec import Sec2vec
