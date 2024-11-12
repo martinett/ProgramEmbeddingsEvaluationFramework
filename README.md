@@ -47,7 +47,17 @@ emb2d = reductor.fit_transform(embeddings)
 plt.scatter(emb2d[:,0], emb2d[:,1], c=labels)
 plt.show()
 ```
-The code for the other evaluations will be available soon.
+Evaluate the embeddings with the clustering index
+```python
+from metrics import clustering_index
+print(clustering_index(embeddings, labels)
+```
+Evaluate the embeddings with the program analogies
+```python
+from metrics import analogy_evaluation
+embedding_function = lambda program : model.infer(program)[0]
+print(analogy_evaluation(embeddings, embedding_function))
+```
 
 ### Citation
 ```
