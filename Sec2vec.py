@@ -18,7 +18,7 @@ class Sec2vec:
                  anonymize=True, anon_num=False, anon_params=False, anon_comments=True,
                  trainingmodel="pv-dm", aggmode="mean",
                  cwindow=None, vsize=100, niter=50, min_count=1,
-                 callbacks=[], seq2vec_callbacks=[], compute_loss=False,
+                 callbacks=[], sec2vec_callbacks=[], compute_loss=False,
                  seed=1, verbose=False):
         """
         Parameters
@@ -74,7 +74,7 @@ class Sec2vec:
         
         self.compute_loss = compute_loss
         self.callbacks = [c for c in callbacks]
-        self.seq2vec_callbacks = [c for c in seq2vec_callbacks]
+        self.sec2vec_callbacks = [c for c in sec2vec_callbacks]
         
         self.trainingmodel = trainingmodel
         self.aggmode = aggmode
@@ -333,7 +333,7 @@ class Sec2vec:
 
         params = self.get_params(corpus)
 
-        for callback in self.seq2vec_callbacks:
+        for callback in self.sec2vec_callbacks:
             callback.before_train(self)
 
         self.demb, self.wemb, self.hemb = self.train_model(self.corpus,
@@ -347,7 +347,7 @@ class Sec2vec:
                                                model_name=self.name+" (train2)",
                                                wv=self.wemb, syn1=self.hemb)
 
-        for callback in self.seq2vec_callbacks:
+        for callback in self.sec2vec_callbacks:
             callback.after_train(self)
     
         return self.demb.vectors
