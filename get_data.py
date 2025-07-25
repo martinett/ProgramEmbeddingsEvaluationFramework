@@ -1,4 +1,5 @@
 import tree_sitter_python as tspython
+import tree_sitter_java as tsjava
 from tree_sitter import Language, Parser
 import json, ast, numpy as np, pandas as pd
 import os
@@ -22,7 +23,7 @@ def PROGPEDIA(language, folder="datasets/"):
     if language == "python":
         lang = Language(tspython.language(), "python")
     elif language == "java":
-        lang = Language("build/my-languages.so", "java")
+        lang = Language(tsjava.language(), "java")
     parser.set_language(lang)
     path = folder+"progpedia"
     res = []
@@ -72,7 +73,7 @@ def AD2022(language, folder="datasets/"):
     if language == "python":
         lang = Language(tspython.language(), "python")
     elif language == "java":
-        lang = Language("build/my-languages.so", "java")
+        lang = Language(tsjava.language(), "java")
     parser.set_language(lang)
     path = folder+"ad2022dataset/AD2022dataset"
     res = []

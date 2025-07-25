@@ -2,6 +2,7 @@ from modified_gensim.gensim.models.doc2vec import TaggedDocument
 import numpy as np
 from importlib import util
 import tree_sitter_python as tspython
+import tree_sitter_java as tsjava
 from tree_sitter import Language, Parser
 import sys
 
@@ -135,8 +136,7 @@ class CorpusBuilder:
         if self.language == "python":
             lang = Language(tspython.language(), "python")
         elif self.language == "java":
-            Language.build_library("build/my-languages.so", ["parsers/tree-sitter-java"])
-            lang = Language("build/my-languages.so", "java")
+            lang = Language(tsjava.language(), "java")
         # parser.set_language(Language("build/my-languages.so", language))
         parser.set_language(lang)
         return parser
